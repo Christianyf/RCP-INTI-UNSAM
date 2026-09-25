@@ -1,0 +1,20 @@
+# Build de ESP-IDF (se regenera al compilar)
+build/
+
+# Configuración generada (contiene rutas/opciones locales)
+sdkconfig
+sdkconfig.old
+
+# Gestor de componentes
+managed_components/
+dependencies.lock
+
+# Python / cachés
+__pycache__/
+*.pyc
+
+# Sistema
+.DS_Store
+
+# Agentes de IA
+AGENTS.md
