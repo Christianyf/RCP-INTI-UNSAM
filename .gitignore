@@ -21,3 +21,6 @@ AGENTS.md
 
 #vscode
 .vscode/
+
+#clangd
+.clangd
