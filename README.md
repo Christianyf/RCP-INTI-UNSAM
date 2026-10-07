@@ -6,8 +6,8 @@ Firmware para ESP32-C3 del proyecto RCP (INTI / UNSAM), basado en ESP-IDF.
 
 ```
 .
-├── app/                 # Proyecto ESP-IDF principal (firmware)
-│   └── main/            # app_main()
+├── CMakeLists.txt       # Proyecto ESP-IDF principal (firmware)
+├── main/                # app_main()
 ├── components/          # Componentes reutilizables (drivers, etc.)
 │   └── drv_gpio/
 ├── tests/               # Proyectos ESP-IDF de prueba, uno por componente
@@ -15,8 +15,9 @@ Firmware para ESP32-C3 del proyecto RCP (INTI / UNSAM), basado en ESP-IDF.
 └── sdkconfig.defaults   # Configuración base (target esp32c3)
 ```
 
-- Cada subdirectorio de `app/` y `tests/` es un proyecto ESP-IDF independiente.
-- Los componentes de `components/` son compartidos por `app/` y `tests/`.
+- La raíz es el proyecto ESP-IDF principal.
+- Cada subdirectorio de `tests/` es un proyecto ESP-IDF independiente.
+- `components/` es compartido por la raíz y por `tests/`.
 
 ## Requisitos
 
@@ -41,3 +42,15 @@ source ~/.espressif/tools/activate_idf_v6.1.sh
 ```
 
 Verificar la instalación con `idf.py --version`.
+
+## Compilar
+
+Desde la raíz del repositorio, con el entorno de ESP-IDF cargado:
+
+```sh
+idf.py build   # el target (esp32c3) se toma de sdkconfig.defaults
+```
+
+## Tests
+
+Los tests están en `tests/` como proyectos ESP-IDF independientes (hoy: `tests/test_gpio`). Cómo compilarlos y ejecutarlos: pendiente.
